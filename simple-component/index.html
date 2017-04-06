@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js Playground</title>
+    <meta name="description" content="Vue.js Playground">
+    <meta name="author" content="Brady Holt">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <input v-model="newItem" />
+            <button type="button" @click="addItem">Add Item</button>
+        </form>
+        <ul>
+            <li v-for="item in items">
+                <single-item v-bind:item="item" v-on:remove="removeItem"></single-item>
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.component('single-item', {
+            props: ['item'],
+            template: `<span>{{item}} <button type="button" @click="$emit('remove', item)">Delete</button></span>`
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [],
+                newItem: ''
+            },
+            methods: {
+                addItem: function () {
+                    this.items.push(this.newItem);
+                    return false;
+                },
+                removeItem: function (item) {
+                    this.items.splice(this.items.indexOf(item), 1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

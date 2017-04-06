@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    // ... other options omitted
+    "allowSyntheticDefaultImports": true,
+    // ... other options omitted
+    "module": "es2015",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.promise"
+    ]
+  }
+}
