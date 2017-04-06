@@ -15,6 +15,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.ts', '.vue'],
     },
+    externals: {
+        vue: "Vue"
+    },
     module: {
         rules: [
             {
