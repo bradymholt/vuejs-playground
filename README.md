@@ -1,3 +1,3 @@
 # vuejs-playground
 
-A playground for learning Vue.js.
+A playground for learning Vue.js
